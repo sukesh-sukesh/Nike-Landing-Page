@@ -1,5 +1,3 @@
-# Nike-Landing-Page
-A responsive landing page for Nike products. Built with [list key technologies: HTML, CSS, JavaScript].
 # Nike Landing Page
 
 This project is a responsive landing page for Nike products, featuring highlighted products and a shop-by-category section.  It's built with HTML, CSS, and JavaScript, incorporating some special effects for enhanced user experience.
