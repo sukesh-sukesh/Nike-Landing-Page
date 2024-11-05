@@ -1,0 +1,561 @@
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff4c00;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 50vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #000;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    margin-bottom: 20px;
+}
+
+
+/* Featured Products */
+
+.featured-products {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.carousel-container {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    overflow: hidden;
+}
+
+.product-carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.product-item {
+    min-width: 300px;
+    margin: 0 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 0 0 calc(33.33% - 20px);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.product-item img {
+    width: 60%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.product-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.product-item:hover .product-info {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.product-item:hover img {
+    transform: scale(1.1); 
+}
+
+.product-name {
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 0; /* Remove extra margin */
+}
+
+.product-price {
+    color: #666;
+    margin: 5px 0;
+}
+
+.product-button { /* Style the button within .product-info */
+    display: inline-block;
+    padding: 8px 15px; /* Adjust as needed */
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 10px; /* Add some top margin */
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+
+}
+.product-button:hover {
+    background-color: #555;
+
+}
+
+/* Carousel Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 3; /* Ensure buttons are above the carousel */
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
+.carousel-btn.inactive { /* Style for inactive buttons */
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+
+/* Highlight Section */
+
+h2 { 
+    font-size: 3rem;
+    font-weight: 700;
+    color: black;
+    text-align: center; /* Center the h2 */
+    margin-bottom: 20px; /* Add space below the h2 */
+}
+.highlight-section {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 4rem 2rem; /* Adjust padding as needed */
+    text-align: center; /* Center the content horizontally */
+    display: flex;
+    flex-direction: column; /* Align items in a column */
+    align-items: center;    /* Center items horizontally */
+}
+
+
+
+.highlight-content {
+    position: relative; /* Position content relative to section */
+    z-index: 1;        /* Ensure button is above the background image */
+    text-align: center; /* Center the button */
+}
+
+
+
+.highlight-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #00050a; /* Example color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add transitions */
+}
+
+.highlight-button:hover {
+    background-color: #010912; /* Darker color on hover */
+    transform: scale(1.05); /* Slight scale on hover */
+    cursor: pointer;
+}
+
+
+
+
+
+/* Product Categories Section */
+.product-categories {
+    display: flex;
+    flex-wrap: wrap;       /* Allow wrapping on smaller screens */
+    padding: 50px 20px;
+    justify-content: center; /* Center the content */
+}
+
+.category-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px; /* Add margin below title */
+    text-align: center;     /* Center the title */
+    width: 100%;          /* Make title take full width */
+}
+
+.categories-container {
+    display: flex;
+    flex-wrap: wrap;   /* Allow wrapping */
+    gap: 20px;         /* Add some space between items */
+    width: 100%;        /* Occupy full width */
+    justify-content: center; /* Center items horizontally */
+}
+
+/* ... other CSS styles ... */
+
+.categories-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Space between category items */
+}
+
+.category-item {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 20px;  /* Removed - now handled by gap */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    width: calc(33.33% - 20px); /* Adjust as needed */
+    text-align: center;
+    transform: scale(1);  /* Initial scale for animation */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.category-item:hover {
+    background-color: #e3e3e3;
+    transform: scale(1.05); /* Subtle pop effect */
+}
+
+
+
+
+.category-image-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    max-height: 500px;
+    text-align: center;
+    margin-bottom: 20px;
+    cursor: pointer; /* Make the whole container clickable */
+}
+
+.category-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s, opacity 0.5s;
+    display: block; /* Ensures image takes up full width */
+}
+
+.category-description {
+    position: absolute;
+    bottom: 0;  /* Position at the bottom */
+    left: 0;
+    width: 100%; /* Full width */
+
+    color: white;
+    padding: 20px; /* Increased padding */
+    visibility : hidden ;
+    opacity: 0;
+    transform: translateY(100%); /* Initially hidden below */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+
+.category-image-container:hover .category-image {
+    transform: scale(1.1);
+    opacity: 0.7;
+}
+
+.category-image-container:hover .category-description {
+    visibility : visible ;
+    opacity: 1;
+    transform: translateY(0); /* Slide up on hover */
+}
+
+.look-up-button {
+    display: inline-block;
+    padding: 12px 24px; /* Adjusted padding */
+    background-color: #ff4c00; /* Example - use a suitable color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 20px; /* Add some margin above the button */
+    border: none; /* Remove any default border */
+}
+
+.look-up-button:hover {
+    background-color: #e64a00; /* Slightly darker on hover */
+}
+
+
+
+/* ... rest of CSS ... */
+
+.new-arrivals {
+    position: relative; /* Position the content over the video */
+    overflow: hidden; /* Prevent video overflow */
+    margin-bottom : 50px;
+    width: 100%; /* Full width of the container */
+    padding: 0; /* Remove inner padding */
+    box-sizing: border-box; 
+    height: 60vh; /* You can adjust this height as needed */
+}
+
+.banner-container {
+    position: relative; /* Position content within the container */
+    width: 100%;
+    height: 100%; /* Full height of the container */
+}
+
+.banner-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the entire container */
+}
+
+.banner-overlay {  /* Dark overlay on the video */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+}
+
+.banner-content {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the content */
+    text-align: center;
+    z-index: 3; /* Ensure content is above the video */
+}
+
+.banner-content h2 {
+    font-size: 3rem; /* Adjust as needed */
+    color: white; /* Or a suitable color */
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better visibility */
+}
+
+.explore-button {
+    display: inline-block;
+    padding: 15px 20px;
+    background-color: #0e0500; /* Example color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
+}
+
+.explore-button:hover {
+    background-color: #0e0501; /* Darker shade on hover */
+    transform: scale(1.05); /* Slight scale on hover */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+
+/*about us */
+
+.about-section {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+.about-section h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.about-item {
+    width: 30%;
+    font-size: 0.875rem; /* Small font size */
+    color: #555;
+    transition: color 0.3s;
+}
+
+.about-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.about-item p {
+    margin: 0;
+    line-height: 1.6;
+    margin-bottom: 15px; /* Space for button */
+}
+
+.about-item:hover {
+    color: #000; /* Darker color on hover */
+}
+
+
+.learn-more-button {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 0.8rem; /* Smaller font size for button */
+    color: #007bff;
+    background-color: transparent;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.learn-more-button:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+
+/* General Button Styles */
+.button, .cta-button, .product-button, .look-up-button, .highlight-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s ease;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* ... (Other button styles if needed) */
+.cta-button {
+    background-color: #ff4c00; /* Example - use your desired color */
+    font-size: 1.2rem; /* Example - adjust font size as needed */
+}
+
+.cta-button:hover {  /* Add the hover effect here */
+    background-color: #e64a00; /* Darker shade on hover */
+    transform: scale(1.05); /* Slight scale on hover */
+}
+
+/* Image Optimization (applied globally) */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* Media Queries (Example - add more as needed) */
+@media (max-width: 768px) {
+    .featured-products .product-item {
+        min-width: 90%;
+        margin: 10px auto;
+        flex: 1 0 100%; /* Take full width on small screens */
+    }
+    .categories-container {
+        flex-direction: column; /* Stack categories vertically */
+
+    }
+    .category-item {
+        width: 100%; /* Full width on small screens */
+    }
+
+
+    /* Add more media query adjustments for other sections */
+}

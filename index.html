@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Shoe Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="images/nike_logo.png" alt="Nike Logo"> <!-- Update with the actual logo path -->
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#men">Men</a></li>
+                <li><a href="#women">Women</a></li>
+                <li><a href="#kids">Kids</a></li>
+                <li><a href="#new-arrivals">New Arrivals</a></li>
+                <li><a href="#sale">Sale</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <!-- Hero Section -->
+   <!-- Hero Section -->
+<section class="hero">
+    <video autoplay muted loop class="hero-video">
+        <source src="images/nike-show.mp4" type="video/mp4"> <!-- Update with your video path -->
+        Your browser does not support the video tag.
+    </video>
+    <div class="hero-content">
+        <h1>Step Up Your Game</h1>
+        <p>Experience unmatched performance and style</p>
+        <a href="#shop" class="cta-button">Shop Now</a>
+    </div>
+</section>
+
+
+   <!-- Featured Products Section -->
+      
+   <section class="featured-products">
+    <h2>Featured Products</h2>
+    <div class="carousel-container">
+        <button class="carousel-btn prev-btn">&#10094;</button> <!-- Left arrow -->
+        <div class="product-carousel">
+            <!-- Product Items -->
+            <div class="product-item">
+                <img src="images/Nike_Air_Max.png" alt="Nike Air Max" class="product-image">
+                <h3 class="product-name">Nike Air Max</h3>
+                <p class="product-price">$120.00</p>
+                <a href="#cart" class="product-button">Add to Cart</a>
+            </div>
+            <div class="product-item">
+                <img src="images/Nike_Revolution.png" alt="Nike Revolution" class="product-image">
+                <h3 class="product-name">Nike Revolution</h3>
+                <p class="product-price">$90.00</p>
+                <a href="#cart" class="product-button">Add to Cart</a>
+            </div>
+            <div class="product-item">
+                <img src="images/Nike_Pegasus.png" alt="Nike Pegasus" class="product-image">
+                <h3 class="product-name">Nike Pegasus</h3>
+                <p class="product-price">$110.00</p>
+                <a href="#cart" class="product-button">Add to Cart</a>
+            </div>
+            <div class="product-item">
+                <img src="images/Nike_Dunk_Low.jpeg" alt="Nike ZoomX" class="product-image">
+                <h3 class="product-name">Nike ZoomX</h3>
+                <p class="product-price">$150.00</p>
+                <a href="#cart" class="product-button">Add to Cart</a>
+            </div>
+        </div>
+        <button class="carousel-btn next-btn">&#10095;</button> <!-- Right arrow -->
+    </div>
+</section>
+
+<!-- JavaScript -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let currentIndex = 0;
+
+        // Grabbing buttons and product carousel
+        const prevButton = document.querySelector('.prev-btn');
+        const nextButton = document.querySelector('.next-btn');
+        const productCarousel = document.querySelector('.product-carousel');
+        const productItems = document.querySelectorAll('.product-item');
+        const itemsPerPage = 3;  // Number of items visible at a time
+        const totalItems = productItems.length;
+
+        // Update button visibility
+        function updateButtons() {
+            prevButton.classList.toggle('inactive', currentIndex === 0);
+            nextButton.classList.toggle('inactive', currentIndex >= totalItems - itemsPerPage);
+        }
+
+        // Slide to the next set of products
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < totalItems - itemsPerPage) {
+                currentIndex++;
+                productCarousel.style.transform = `translateX(-${currentIndex * 100 / itemsPerPage}%)`;
+                updateButtons();
+            }
+        });
+
+        // Slide to the previous set of products
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                productCarousel.style.transform = `translateX(-${currentIndex * 100 / itemsPerPage}%)`;
+                updateButtons();
+            }
+        });
+
+        // Initial button state
+        updateButtons();
+    });
+</script>
+
+
+    <!-- Highlight Section -->
+    <h2>Introducing the New Nike Air Zoom Collection</h2>
+    <section class="highlight-section">
+        <img src="alt img/Screenshot 2024-11-02 213850.png"Highlight Section Background" class="highlight-background">
+        <div class="highlight-content">
+           <a href="#collection" class="highlight-button">Explore Collection</a>
+        </div>
+    </section>
+ 
+    <!-- Product Categories Section -->
+    
+    <section class="product-categories">
+        <h2 class="category-title">Shop by Category</h2>
+        <div class="categories-container">
+            <div class="categories-list">
+                <div class="category-item" data-category="Training">
+                    <p>Training</p>
+                </div>
+                <div class="category-item" data-category="Basketball">
+                    <p>Basketball</p>
+                </div>
+                <div class="category-item" data-category="Football">
+                    <p>Football</p>
+                </div>
+                <div class="category-item" data-category="Lifestyle">
+                    <p>Lifestyle</p>
+                </div>
+                <div class="category-item" data-category="Running Shoes">
+                    <p>Running Shoes</p>
+                </div>
+            </div>
+            <div class="category-image-container">
+                <img id="category-image" src="" alt="Category Image" class="category-image">
+                <div class="category-description">
+                    <h3 id="category-title"></h3>
+                    <p id="category-text"></p>
+                    <a href="#" class="look-up-button">Look Up</a>
+                </div>
+            </div>
+        </div>
+    </section>
+   <!-- Javascript category section -->
+ <script>
+   document.addEventListener('DOMContentLoaded', () => {
+    const categoryItems = document.querySelectorAll('.category-item');
+    const categoryImage = document.getElementById('category-image');
+    const categoryTitle = document.getElementById('category-title');
+    const categoryText = document.getElementById('category-text');
+    const categoryImageContainers = document.querySelectorAll('.category-image-container');
+
+    const categoryData = {
+        'Training': {
+            image: "images/train.jpeg", // Update with actual image path
+            text: 'High-performance shoes for training sessions.'
+        },
+        'Basketball': {
+            image: "images/baseket.jpg", // Update with actual image path
+            text: 'Designed for grip and agility on the court.'
+        },
+        'Football': {
+            image:"images/football.png", // Update with actual image path
+            text: 'Optimize your game with these top-quality cleats.'
+        },
+        'Lifestyle': {
+            image: "images/lifestyle.jpg", // Update with actual image path
+            text: 'Casual footwear for everyday style.'
+        },
+        'Running Shoes': {
+            image:"alt img/running.jpg", // Update with actual image path
+            text: 'Lightweight and comfortable for runners.'
+        }
+    };
+
+    categoryItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            const category = item.getAttribute('data-category');
+            const data = categoryData[category];
+            if (data) {
+                categoryImage.src = data.image;  // Set the source to the category image
+                categoryImage.style.display = 'block'; // Ensure image is visible
+                categoryTitle.textContent = category;
+                categoryText.textContent = data.text;
+            }
+        });
+
+      
+    });
+   
+});
+
+</script>
+
+
+    
+    <!-- Most Iconic Products Section -->
+    <section class="new-arrivals">
+        <div class="banner-container">
+            <video autoplay muted loop class="banner-video">
+                <source src="alt img/Untitled video - Made with Clipchamp (1).mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="banner-overlay"></div>  <!-- Overlay -->
+        <div class="banner-content">
+            <h2>New Arrivals</h2>
+            <a href="#" class="explore-button">Explore Now</a>
+        </div>
+    </div> 
+</section>
+<section class="about-section">
+    <h2>About</h2>
+    <div class="about-container">
+        <div class="about-item">
+            <h3>About Company</h3>
+            <p>Learn more about Nike's journey and its commitment to innovation, sustainability, and empowering athletes worldwide.</p>
+            <a href="#" class="learn-more-button">Learn More</a>
+        </div>
+        <div class="about-item">
+            <h3>Resources</h3>
+            <p>Access our latest reports, investor relations information, and more to stay informed about Nike’s mission and goals.</p>
+            <a href="#" class="learn-more-button">Learn More</a>
+        </div>
+        <div class="about-item">
+            <h3>Get Help</h3>
+            <p>Have questions? Our support team is here to assist you with your orders, returns, and any other inquiries.</p>
+            <a href="#" class="learn-more-button">Learn More</a>
+        </div>
+    </div>
+</section>
+
+
+</body>
+
+</html>
